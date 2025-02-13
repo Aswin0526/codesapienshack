@@ -1,0 +1,73 @@
+Code-
+
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
+# Email configuration
+smtp_server = 'smtp.gmail.com'
+smtp_port = 587  # Use 465 for SSL
+sender_email = 'sender@gmail.com'
+sender_password = 'yourpassword'
+receiver_email = 'receiver@gmail.com'
+
+# Create the email content
+subject = 'Test Email'
+body = 'This is a test email sent from Python.'
+
+# Create a multipart message and set headers
+message = MIMEMultipart()
+message['From'] = sender_email
+message['To'] = receiver_email
+message['Subject'] = subject
+
+# Attach the body with the msg instance
+message.attach(MIMEText(body, 'plain'))
+
+try:
+    # Connect to the server and log in
+    server = smtplib.SMTP(smtp_server, smtp_port)
+    server.starttls()  # Secure the connection
+    server.login(sender_email, sender_password)
+
+    # Send the email
+    server.sendmail(sender_email, receiver_email, message.as_string())
+    print("Email sent successfully!")
+
+except Exception as e:
+    print(f"Error: {e}")
+
+finally:
+    # Terminate the SMTP session and close the connection
+    server.quit()
+
+
+
+smtplib: A Python library for sending emails using the Simple Mail Transfer Protocol (SMTP).
+email.mime.text.MIMEText: A class to create MIME objects of text type.
+email.mime.multipart.MIMEMultipart: A class to create multipart MIME objects, which can contain multiple MIME parts.
+
+smtp_server: The SMTP server address for Gmail.
+smtp_port: The port used for SMTP communication. Port 587 is used for TLS, and port 465 is used for SSL.
+sender_email: The email address of the sender.
+sender_password: The password of the sender's email account.
+receiver_email: The email address of the recipient
+
+subject: The subject of the email.
+body: The main content of the email.
+
+MIMEMultipart(): Creates a multipart message object.
+message['From']: Sets the 'From' header to the sender's email.
+message['To']: Sets the 'To' header to the receiver's email.
+message['Subject']: Sets the 'Subject' header to the subject defined earlier
+
+MIMEText(body, 'plain'): Creates a MIMEText object with the email body as plain text.
+message.attach(): Attaches the body to the message object.
+
+server = smtplib.SMTP(smtp_server, smtp_port): Connects to the SMTP server using the specified server address and port.
+server.starttls(): Upgrades the connection to a secure encrypted SSL/TLS connection.
+server.login(sender_email, sender_password): Logs in to the sender's email account using the provided credentials.
+server.sendmail(sender_email, receiver_email, message.as_string()): Sends the email from the sender to the receiver. The message.as_string() method converts the MIME message into a string format suitable for sending.
+print("Email sent successfully!"): Prints a success message if the email is sent without errors.
+except Exception as e: Catches any exceptions that occur during the process and prints an error message.
+finally: server.quit(): Ensures that the SMTP session is terminated and the connection to the server is closed, whether or not an error occurred.
