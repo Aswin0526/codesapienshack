@@ -8,11 +8,10 @@ from email.mime.multipart import MIMEMultipart
 
 
 def send_mail(n,image_path):
-  # Email configuration
   smtp_server = 'smtp.gmail.com'
   smtp_port = 587  # Use 465 for SSL
   sender_email = 'aswin0526as@gmail.com'
-  sender_password = 'bwcsamqtpbnywotu'
+  sender_password = ''#password
   receiver_email = 'sec23cs156@sairamtap.edu.in'
 
   # Create the email content
