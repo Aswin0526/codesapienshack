@@ -1,6 +1,0 @@
-Inference-
-
-In computer vision, "inference" refers to the process of applying a trained machine learning model, 
-typically a deep neural network, to new, unseen data to make predictions or extract meaningful information. 
-The term "inference" is derived from the idea that the model is inferring the properties or labels of the 
-input data based on what it has learned during the training phase
