@@ -9,7 +9,7 @@ def send_mail(n, image_path):
     smtp_server = 'smtp.gmail.com'
     smtp_port = 587
     sender_email = 'aswin0526as@gmail.com'
-    sender_password = 'bwcsamqtpbnywotu'
+    sender_password = ''#password
     receiver_email = 'sec23cs156@sairamtap.edu.in'
     subject = 'Attention!!'
     body = f'{n} person detected'
