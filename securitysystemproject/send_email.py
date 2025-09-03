@@ -5,9 +5,9 @@ from email.mime.multipart import MIMEMultipart
 # Email configuration
 smtp_server = 'smtp.gmail.com'
 smtp_port = 587  # Use 465 for SSL
-sender_email = 'aswin0526as@gmail.com'
-sender_password = 'cnuzmutckmrlbmgu'
-receiver_email = 'sec23cs156@sairamtap.edu.in'
+sender_email = ''#sendermailid
+sender_password = ''#password
+receiver_email = ''#reciver mailid
 
 # Create the email content
 subject = 'Test Email'
